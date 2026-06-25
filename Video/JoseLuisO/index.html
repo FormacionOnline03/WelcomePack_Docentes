@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>José Luis Olazagotia — Welcome Pack</title>
+  <link rel="stylesheet" href="../../Recursos/CSS/global.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="video-page">
+
+    <!-- ═══════════════════════════════════════════════════════
+         COLUMNA IZQUIERDA: reproductor con overlay de preview
+    ════════════════════════════════════════════════════════ -->
+    <div class="video-col">
+      <div class="video-player" data-state="preview">
+
+        <video class="video-player__video" src="../VideoPlaceholder.mp4" preload="metadata" controls></video>
+
+        <!-- Overlay: visible antes de iniciar y al finalizar -->
+        <div class="video-player__overlay">
+
+          <!-- Imagen de preview -->
+          <img class="video-player__preview"
+               src="../../Recursos/Imagenes/ImagenPreview_JoseLuisO.jpg"
+               alt="José Luis Olazagotia, Vicerrector de investigación" />
+
+          <!-- Botón play centrado -->
+          <button class="video-player__play" aria-label="Reproducir vídeo de José Luis Olazagotia">
+            <svg viewBox="0 0 48 55" fill="white" aria-hidden="true">
+              <polygon points="0,0 48,27.5 0,55" />
+            </svg>
+          </button>
+
+        </div><!-- /.video-player__overlay -->
+      </div><!-- /.video-player -->
+
+      <!-- Vídeos relacionados — absolute sobre el vídeo en desktop, flujo normal en móvil -->
+      <aside class="related-videos" aria-label="Otros vídeos">
+        <a class="related-item" href="../JuanCayon/index.html">
+          <div class="related-item__thumb" aria-hidden="true"></div>
+          <div class="related-item__meta">
+            <p class="related-item__name">Juan Cayón</p>
+            <p class="related-item__role">Rector</p>
+          </div>
+        </a>
+        <hr class="related-item__rule" />
+        <a class="related-item" href="../MarisaSarget/index.html">
+          <div class="related-item__thumb" aria-hidden="true"></div>
+          <div class="related-item__meta">
+            <p class="related-item__name">Marisa Sarget</p>
+            <p class="related-item__role">Vicerrectora</p>
+          </div>
+        </a>
+      </aside>
+
+    </div><!-- /.video-col -->
+
+    <!-- ═══════════════════════════════════════════════════════
+         COLUMNA DERECHA: info del ponente
+    ════════════════════════════════════════════════════════ -->
+    <section class="video-info" aria-labelledby="speaker-name">
+
+      <div class="video-info__header">
+        <h1 class="video-info__name" id="speaker-name">
+          <span class="vid-mask"><span class="vid-word">José</span></span>
+          <span class="vid-mask"><span class="vid-word">Luis</span></span>
+          <span class="vid-mask"><span class="vid-word">Olazagotia</span></span>
+        </h1>
+        <p class="video-info__role">Vicerrector de investigación</p>
+      </div>
+
+      <blockquote class="video-quote">
+        <img class="video-quote__mark video-quote__mark--open" src="../../Recursos/Imagenes/Imagen_Comilla_Abrir.svg" alt="" aria-hidden="true" />
+        <p class="video-quote__text">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+        <img class="video-quote__mark video-quote__mark--close" src="../../Recursos/Imagenes/Imagen_Comilla_Cerrar.svg" alt="" aria-hidden="true" />
+      </blockquote>
+
+      <div class="video-signature">
+        <img src="../../Recursos/Imagenes/Imagen_FirmaPlaceholder.svg" alt="" aria-hidden="true" />
+      </div>
+
+      <a class="btn-back" href="../../Home/index.html">
+        <svg width="13" height="11" viewBox="0 0 13 11" fill="none" aria-hidden="true">
+          <path d="M12 5.5H1M1 5.5L5.5 1M1 5.5L5.5 10" stroke="white" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Volver
+      </a>
+
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      var player  = document.querySelector('.video-player');
+      var overlay = player.querySelector('.video-player__overlay');
+      var video   = player.querySelector('video');
+
+      overlay.addEventListener('click', function () {
+        video.play();
+      });
+
+      video.addEventListener('play', function () {
+        player.dataset.state = 'playing';
+      });
+
+      video.addEventListener('pause', function () {
+        if (!video.ended) player.dataset.state = 'paused';
+      });
+
+      video.addEventListener('ended', function () {
+        player.dataset.state = 'preview';
+      });
+    })();
+  </script>
+</body>
+</html>

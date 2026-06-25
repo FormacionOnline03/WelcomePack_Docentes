@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome Pack</title>
+  <link rel="stylesheet" href="../Recursos/CSS/global.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MENÚ HAMBURGUESA — overlay dropdown desde arriba
+  ════════════════════════════════════════════════════════ -->
+  <div class="site-nav-wrap" id="site-nav-wrap" aria-hidden="true">
+    <nav class="site-nav" aria-label="Menú principal">
+
+      <div class="site-nav__bar">
+        <img src="../Recursos/Imagenes/LogoUDIT_Menu.svg" alt="UDIT" class="site-nav__bar-logo" />
+        <button class="site-nav__close" aria-label="Cerrar menú">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M1 1L17 17M17 1L1 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="site-nav__cols">
+
+        <!-- Columna 1: Bienvenida -->
+        <div class="site-nav__col">
+          <a class="site-nav__hero-link" href="#bienvenida">
+            <span>Bienvenida</span>
+            <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+          </a>
+        </div>
+
+        <!-- Columna 2: Funciones + Servicios -->
+        <div class="site-nav__col">
+          <a class="site-nav__link" href="#funciones">
+            <span>Funciones de los docentes</span>
+            <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+          </a>
+          <hr class="site-nav__rule" />
+          <a class="site-nav__link" href="#servicios">
+            <span>Servicios y apoyo al profesorado</span>
+            <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+          </a>
+        </div>
+
+        <!-- Columna 3: Jueves + Accesos + Comunidad -->
+        <div class="site-nav__col">
+          <a class="site-nav__link" href="#jueves">
+            <span>Jueves de encuentro con áreas clave de la universidad</span>
+            <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+          </a>
+          <hr class="site-nav__rule" />
+          <a class="site-nav__link" href="#accesos">
+            <span>Accesos</span>
+            <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+          </a>
+          <hr class="site-nav__rule" />
+          <a class="site-nav__link" href="#comunidad">
+            <span>Comunidad docente</span>
+            <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+          </a>
+        </div>
+
+        <!-- Columna 4: Plan de formación y desarrollo (más ancha, 2 sub-columnas) -->
+        <div class="site-nav__col site-nav__col--plan">
+          <a class="site-nav__plan-title" href="#plan">
+            <span>Plan de formación y desarrollo</span>
+            <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow site-nav__plan-arrow" />
+          </a>
+          <div class="site-nav__plan-grid">
+            <div class="site-nav__plan-col">
+              <p class="site-nav__plan-heading">Plan de Formación</p>
+              <div class="site-nav__plan-items">
+                <a class="site-nav__plan-link" href="#plan" data-accordion="panel-formacion">
+                  <span>01/ Blackboard Academy</span>
+                  <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+                </a>
+                <hr class="site-nav__rule" />
+                <a class="site-nav__plan-link" href="#plan" data-accordion="panel-formacion">
+                  <span>02/ Suite Creativa de diseño digital</span>
+                  <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+                </a>
+                <hr class="site-nav__rule" />
+                <a class="site-nav__plan-link" href="#plan" data-accordion="panel-formacion">
+                  <span>03/ IA para docentes</span>
+                  <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+                </a>
+              </div>
+            </div>
+            <div class="site-nav__plan-col">
+              <p class="site-nav__plan-heading">Plan de desarrollo</p>
+              <div class="site-nav__plan-items">
+                <a class="site-nav__plan-link" href="#plan" data-accordion="panel-desarrollo">
+                  <span>01/ Plan coaching</span>
+                  <img src="../Recursos/Imagenes/FlechaNegra.svg" alt="" aria-hidden="true" class="site-nav__arrow" />
+                </a>
+                <hr class="site-nav__rule" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.site-nav__cols -->
+    </nav>
+    <div class="site-nav__scrim" id="site-nav-scrim"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════════════════════ -->
+  <header class="site-header" id="bienvenida">
+    <div class="container">
+
+      <div class="site-header__topbar">
+        <button class="hamburger" aria-label="Abrir menú">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <img class="site-header__logo"
+             src="../Recursos/Imagenes/LogoUDIT_Home.svg"
+             alt="Logo UDIT Innovación" />
+      </div>
+
+      <div class="site-header__hero">
+        <h1 class="site-header__title">
+          <span class="hero-mask"><span class="hero-word">Te</span></span>
+          <span class="hero-mask"><span class="hero-word">damos</span></span>
+          <span class="hero-mask"><span class="hero-word">la</span></span>
+          <span class="hero-mask"><span class="hero-word">bienvenida</span></span>
+        </h1>
+        <div class="site-header__subtitle-row">
+          <span class="accent-bar-v" aria-hidden="true"></span>
+          <p class="site-header__subtitle">Haz clic sobre los vídeos para...</p>
+        </div>
+      </div>
+
+      <div class="videos-grid">
+
+        <a class="video-card" href="../Video/JuanCayon/index.html">
+          <div class="video-card__media">
+            <img src="../Recursos/Imagenes/Imagen_JuanCayon.svg" alt="Vídeo de Juan Cayón, Rector" />
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__thumb" aria-hidden="true">
+              <video class="video-card__thumb-video" src="../Video/VideoPlaceholder.mp4" muted preload="none" loop></video>
+            </div>
+            <div class="video-card__meta">
+              <p class="video-card__name">Juan Cayón</p>
+              <p class="video-card__role">Rector</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="../Video/MarisaSarget/index.html">
+          <div class="video-card__media">
+            <img src="../Recursos/Imagenes/Imagen_MarisaSarget.svg" alt="Vídeo de Marisa Sarget, Vicerrectora" />
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__thumb" aria-hidden="true">
+              <video class="video-card__thumb-video" src="../Video/VideoPlaceholder.mp4" muted preload="none" loop></video>
+            </div>
+            <div class="video-card__meta">
+              <p class="video-card__name">Marisa Sarget</p>
+              <p class="video-card__role">Vicerrectora</p>
+            </div>
+          </div>
+        </a>
+
+        <a class="video-card" href="../Video/JoseLuisO/index.html">
+          <div class="video-card__media">
+            <img src="../Recursos/Imagenes/Imagen_JoseLuisOlazagotia.svg" alt="Vídeo de José Luis Olazagotia, Vicerrector de investigación" />
+          </div>
+          <div class="video-card__info">
+            <div class="video-card__thumb" aria-hidden="true">
+              <video class="video-card__thumb-video" src="../Video/VideoPlaceholder.mp4" muted preload="none" loop></video>
+            </div>
+            <div class="video-card__meta">
+              <p class="video-card__name">José Luis Olazagotia</p>
+              <p class="video-card__role">Vicerrector de investigación</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN
+  ════════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- MISIÓN, VISIÓN Y VALORES -->
+    <section class="section-row section-mision" id="mision" aria-labelledby="mision-title">
+      <div class="container section-mision__inner">
+        <div class="section-mision__left">
+          <span class="accent-bar" aria-hidden="true"></span>
+          <h2 class="section-title" id="mision-title">MISIÓN, VISIÓN<br>Y VALORES</h2>
+          <p class="section-text">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+        </div>
+        <div class="section-mision__right">
+          <iframe
+            src="../Recursos/PDF/Plantilla de Autoevaluaciones.pdf#toolbar=0&navpanes=0&scrollbar=0"
+            class="section-mision__pdf"
+            title="Documento: Misión, visión y valores"
+            aria-label="Documento PDF: Misión, visión y valores">
+          </iframe>
+          <a href="../Recursos/PDF/Plantilla de Autoevaluaciones.pdf" class="btn-pdf section-mision__pdf-btn" target="_blank" aria-label="Ver documento PDF: Misión, visión y valores">
+            Ver documento
+            <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONES DE LOS DOCENTES -->
+    <section class="section-row section-funciones" id="funciones" aria-labelledby="funciones-title">
+      <div class="container section-row__inner">
+        <div class="section-row__left">
+          <span class="accent-bar" aria-hidden="true"></span>
+          <h2 class="section-title" id="funciones-title">FUNCIONES DE<br>LOS DOCENTES</h2>
+        </div>
+        <div class="section-row__right">
+          <p class="section-text">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+          <a class="btn-pdf" href="#" aria-label="Descargar PDF: Funciones de los docentes">
+            .pdf
+            <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+          </a>
+        </div>
+        <div class="section-row__icon section-row__icon--funciones" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS Y APOYO AL PROFESORADO -->
+    <section class="section-row" id="servicios" aria-labelledby="servicios-title">
+      <div class="container section-row__inner">
+        <div class="section-row__left">
+          <span class="accent-bar" aria-hidden="true"></span>
+          <h2 class="section-title" id="servicios-title">SERVICIOS Y APOYO<br>AL PROFESORADO</h2>
+        </div>
+        <div class="section-row__right">
+          <p class="section-text">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+          <a class="btn-pdf" href="#" aria-label="Descargar PDF: Servicios y apoyo al profesorado">
+            .pdf
+            <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+          </a>
+        </div>
+        <div class="section-row__icon section-row__icon--servicios" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- PLAN DE FORMACIÓN Y DESARROLLO -->
+    <section class="section-plan" id="plan" aria-labelledby="plan-title">
+      <div class="container section-plan__inner">
+
+        <div class="section-plan__card">
+          <span class="accent-bar" aria-hidden="true"></span>
+          <h2 class="section-title" id="plan-title">PLAN DE FORMACIÓN<br>Y DESARROLLO</h2>
+          <img src="../Recursos/Imagenes/Imagen_PlanFormacionDesarrollo.svg" alt="Docente impartiendo formación en un aula" />
+        </div>
+
+        <div class="section-plan__content">
+          <p class="section-text">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+          <div class="accordion">
+            <hr class="accordion__rule" />
+            <button class="accordion__item" type="button" aria-expanded="false" aria-controls="panel-formacion">
+              <span>Plan de formación</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel" id="panel-formacion" aria-hidden="true">
+              <div class="accordion__panel-inner">
+                <ul class="accordion__list">
+                  <a href="https://online.udit.es/ultra/courses/_1952_1/outline" class="accordion__list-item" target="_blank" rel="noopener noreferrer">
+                    <span class="accordion__label"><span class="accordion__num">01/</span><span>Blackboard Academy</span></span>
+                    <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+                  </a>
+                  <li class="accordion__list-item">
+                    <span class="accordion__label"><span class="accordion__num">02/</span><span>Suite Creativa de diseño digital</span></span>
+                    <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+                  </li>
+                  <li class="accordion__list-item">
+                    <span class="accordion__label"><span class="accordion__num">03/</span><span>IA para docentes</span></span>
+                    <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <hr class="accordion__rule" />
+            <button class="accordion__item" type="button" aria-expanded="false" aria-controls="panel-desarrollo">
+              <span>Plan de desarrollo</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel" id="panel-desarrollo" aria-hidden="true">
+              <div class="accordion__panel-inner">
+                <ul class="accordion__list">
+                  <li class="accordion__list-item">
+                    <span class="accordion__label"><span class="accordion__num">01/</span><span>Programa de coaching</span></span>
+                    <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <hr class="accordion__rule" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMUNIDAD DOCENTE -->
+    <section class="section-row section-comunidad" id="comunidad" aria-labelledby="comunidad-title">
+      <div class="container section-row__inner">
+        <div class="section-row__left">
+          <span class="accent-bar" aria-hidden="true"></span>
+          <h2 class="section-title" id="comunidad-title">COMUNIDAD<br>DOCENTE</h2>
+        </div>
+        <div class="section-row__right">
+          <p class="section-text">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+          <a class="btn-pdf" href="#" aria-label="Descargar PDF: Comunidad docente">
+            .pdf
+            <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" />
+          </a>
+        </div>
+        <div class="section-row__icon section-row__icon--comunidad" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- JUEVES DE ENCUENTRO -->
+    <section class="section-jueves" id="jueves" aria-labelledby="jueves-title">
+      <div class="container">
+        <span class="accent-bar" aria-hidden="true"></span>
+        <h2 class="section-title section-jueves__title" id="jueves-title">
+          JUEVES DE ENCUENTRO CON ÁREAS CLAVE DE LA UNIVERSIDAD
+        </h2>
+        <p class="section-text section-jueves__desc">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+
+        <div class="carousel" role="region" aria-label="Sesiones Jueves de Encuentro">
+          <div class="carousel__track">
+
+            <article class="jueves-card" aria-labelledby="portal-title">
+              <h3 class="jueves-card__name" id="portal-title">Portal del docente</h3>
+              <hr class="jueves-card__rule" />
+              <div class="jueves-card__body">
+                <div class="jueves-card__thumb jueves-card__thumb--portal" aria-hidden="true"></div>
+                <div class="jueves-card__details">
+                  <p class="jueves-card__date"><span>Jueves 10 septiembre</span><br /><strong>14:00 h</strong></p>
+                  <a class="jueves-card__btn" href="#" aria-label="Acceder: Portal del docente, Jueves 10 Septiembre 14.00h">Acceder <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="jueves-card" aria-labelledby="calidad-title">
+              <h3 class="jueves-card__name" id="calidad-title">Calidad</h3>
+              <hr class="jueves-card__rule" />
+              <div class="jueves-card__body">
+                <div class="jueves-card__thumb jueves-card__thumb--calidad" aria-hidden="true"></div>
+                <div class="jueves-card__details">
+                  <p class="jueves-card__date"><span>Jueves 24 septiembre</span><br /><strong>14:00 h</strong></p>
+                  <a class="jueves-card__btn" href="#" aria-label="Acceder: Calidad, Jueves 24 Septiembre 14.00h">Acceder <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="jueves-card" aria-labelledby="informatica-title">
+              <h3 class="jueves-card__name" id="informatica-title">Informática</h3>
+              <hr class="jueves-card__rule" />
+              <div class="jueves-card__body">
+                <div class="jueves-card__thumb jueves-card__thumb--informatica" aria-hidden="true"></div>
+                <div class="jueves-card__details">
+                  <p class="jueves-card__date"><span>Jueves 8 octubre</span><br /><strong>14:00 h</strong></p>
+                  <a class="jueves-card__btn" href="#" aria-label="Acceder: Informática, Jueves 8 Octubre 14.00h">Acceder <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="jueves-card" aria-labelledby="rrhh-title">
+              <h3 class="jueves-card__name" id="rrhh-title">Recursos humanos</h3>
+              <hr class="jueves-card__rule" />
+              <div class="jueves-card__body">
+                <div class="jueves-card__thumb jueves-card__thumb--rrhh" aria-hidden="true"></div>
+                <div class="jueves-card__details">
+                  <p class="jueves-card__date"><span>Jueves 22 octubre</span><br /><strong>14:00 h</strong></p>
+                  <a class="jueves-card__btn" href="#" aria-label="Acceder: Recursos humanos, Jueves 22 Octubre 14.00h">Acceder <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="carousel__footer">
+            <div class="carousel__dots" role="tablist" aria-label="Diapositivas">
+              <button type="button" role="tab" aria-selected="true"  aria-label="Diapositiva 1" class="carousel__dot carousel__dot--active"></button>
+              <button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 2" class="carousel__dot"></button>
+              <button type="button" role="tab" aria-selected="false" aria-label="Diapositiva 3" class="carousel__dot"></button>
+            </div>
+            <div class="carousel__arrows">
+              <button type="button" aria-label="Anterior" class="carousel__arrow">←</button>
+              <button type="button" aria-label="Siguiente" class="carousel__arrow">→</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACCESOS -->
+    <section class="section-accesos" id="accesos" aria-labelledby="accesos-title">
+      <div class="container section-accesos__inner">
+        <div class="section-accesos__left">
+          <span class="accent-bar" aria-hidden="true"></span>
+          <h2 class="section-title" id="accesos-title">ACCESOS</h2>
+          <p class="section-text">Lorem ipsum dolor sit amet consectetur adipiscing elit commodo, porttitor.</p>
+        </div>
+        <nav class="accesos-list" aria-label="Accesos rápidos">
+          <a href="#" class="acceso-link" target="_blank" rel="noopener noreferrer">PORTAL DEL DOCENTE <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+          <a href="https://www.udit.es/listado-de-noticias/" class="acceso-link" target="_blank" rel="noopener noreferrer">NOTICIAS UDIT <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+          <a href="mailto:soporte.campusvirtual@udit.es" class="acceso-link">SOPORTE CAMPUS <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+          <a href="https://www.figma.com/proto/Xz0gZXZUjPGkBxDX1yVwAs/Ally?page-id=0%3A1&node-id=0-17&viewport=369%2C-291%2C0.12&t=ZeZCAEghGPAYf5Iy-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=0%3A17" class="acceso-link" target="_blank" rel="noopener noreferrer">ALLY <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+          <a href="https://odilo.udit.es/" class="acceso-link" target="_blank" rel="noopener noreferrer">ODILO <img src="../Recursos/Imagenes/FlechaBlanca.svg" alt="" aria-hidden="true" class="btn-arrow" /></a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <img class="site-footer__bg" src="../Recursos/Imagenes/Imagen_Footer.svg" alt="" aria-hidden="true" />
+    <img class="site-footer__logo"
+         src="../Recursos/Imagenes/LogoUDIT_Home.svg"
+         alt="Logo UDIT Innovación" />
+  </footer>
+
+
+  <script>
+    (function () {
+      var carousel = document.querySelector('.carousel');
+      if (!carousel) return;
+
+      var track   = carousel.querySelector('.carousel__track');
+      var cards   = Array.from(carousel.querySelectorAll('.jueves-card'));
+      var prevBtn = carousel.querySelector('.carousel__arrow[aria-label="Anterior"]');
+      var nextBtn = carousel.querySelector('.carousel__arrow[aria-label="Siguiente"]');
+      var dots    = Array.from(carousel.querySelectorAll('.carousel__dot'));
+
+      var currentIndex = 0;
+
+      function cardWidth()    { return cards[0].offsetWidth; }
+      function gapSize()      { return parseInt(getComputedStyle(track).columnGap) || 17; }
+      function visibleCount() {
+        var tw = carousel.offsetWidth;
+        var cw = cardWidth();
+        var g  = gapSize();
+        return Math.max(1, Math.floor((tw + g) / (cw + g)));
+      }
+      function maxIndex() { return Math.max(0, cards.length - visibleCount()); }
+
+      function goTo(index) {
+        var max = maxIndex();
+        currentIndex = index < 0 ? 0 : index > max ? max : index;
+        track.style.transform = 'translateX(-' + (currentIndex * (cardWidth() + gapSize())) + 'px)';
+
+        dots.forEach(function (dot, i) {
+          var active = i === currentIndex;
+          dot.classList.toggle('carousel__dot--active', active);
+          dot.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+
+        prevBtn.disabled = currentIndex <= 0;
+        nextBtn.disabled = currentIndex >= maxIndex();
+      }
+
+      prevBtn.addEventListener('click', function () { goTo(currentIndex - 1); });
+      nextBtn.addEventListener('click', function () { goTo(currentIndex + 1); });
+      dots.forEach(function (dot, i) { dot.addEventListener('click', function () { goTo(i); }); });
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () { goTo(Math.min(currentIndex, maxIndex())); }, 100);
+      });
+
+      goTo(0);
+    })();
+
+    // ── Menú hamburguesa ──────────────────────────────────────
+    (function () {
+      var wrap      = document.getElementById('site-nav-wrap');
+      var hamburger = document.querySelector('.hamburger');
+      var closeBtn  = wrap.querySelector('.site-nav__close');
+      var scrim     = document.getElementById('site-nav-scrim');
+
+      function openMenu() {
+        wrap.classList.add('is-open');
+        wrap.setAttribute('aria-hidden', 'false');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeMenu() {
+        wrap.classList.remove('is-open');
+        wrap.setAttribute('aria-hidden', 'true');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        hamburger.focus();
+      }
+
+      hamburger.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      scrim.addEventListener('click', closeMenu);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && wrap.classList.contains('is-open')) closeMenu();
+      });
+
+      var navLinks = wrap.querySelectorAll('a[href^="#"]');
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var target = document.querySelector(this.getAttribute('href'));
+          var accordionId = this.getAttribute('data-accordion');
+          if (target) {
+            e.preventDefault();
+            closeMenu();
+            setTimeout(function () {
+              target.scrollIntoView({ behavior: 'smooth' });
+              if (accordionId) {
+                var panel = document.getElementById(accordionId);
+                var btn = document.querySelector('[aria-controls="' + accordionId + '"]');
+                if (btn && panel) {
+                  btn.setAttribute('aria-expanded', 'true');
+                  panel.setAttribute('aria-hidden', 'false');
+                }
+              }
+            }, 420);
+          }
+        });
+      });
+    })();
+
+    // ── Acordeón ───────────────────────────────────────────────
+    (function () {
+      var btns = document.querySelectorAll('.accordion__item');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.getAttribute('aria-expanded') === 'true';
+          var panel = document.getElementById(btn.getAttribute('aria-controls'));
+          btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          panel.setAttribute('aria-hidden', expanded ? 'true' : 'false');
+        });
+      });
+    })();
+
+    // ── Scroll reveal — secciones ─────────────────────────────
+    (function () {
+      var targets = document.querySelectorAll('.section-row, .section-plan, .section-jueves, .section-accesos');
+
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.35 });
+
+      targets.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // ── Topbar: ocultar al bajar, mostrar al subir ─────────────
+    (function () {
+      var topbar = document.querySelector('.site-header__topbar');
+      var lastY  = 0;
+      var THRESHOLD = 8;
+
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+
+        if (y <= 0) {
+          topbar.classList.remove('is-hidden', 'is-scrolled');
+        } else if (y > lastY + THRESHOLD) {
+          topbar.classList.add('is-hidden', 'is-scrolled');
+        } else if (y < lastY - THRESHOLD) {
+          topbar.classList.remove('is-hidden');
+          topbar.classList.add('is-scrolled');
+        }
+
+        lastY = y;
+      }, { passive: true });
+    })();
+
+    // ── Video preview en thumbs al hover ────────────────────────
+    (function () {
+      document.querySelectorAll('.video-card').forEach(function (card) {
+        var video = card.querySelector('.video-card__thumb-video');
+        if (!video) return;
+        card.addEventListener('mouseenter', function () {
+          video.play();
+        });
+        card.addEventListener('mouseleave', function () {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+/* ─── PÁGINA DE CARGA ─────────────────────────────────────────── */
+
+.pagina-carga {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #0e0e0e;
+}
+
+/* Imagen de fondo */
+.pagina-carga .bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tarjeta central */
+.pagina-carga .card {
+  position: relative;
+  z-index: 1;
+  width: clamp(260px, 85vw, 443px);
+  aspect-ratio: 443 / 630;
+}
+
+.pagina-carga .card__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #0e0e0e;
+}
+
+/* Título "Welcome Pack" — esquina superior izquierda */
+.pagina-carga .card__header {
+  align-self: flex-start;
+  margin-top: clamp(16px, 4.92%, 31px);
+  margin-left: clamp(18px, 8.58%, 38px);
+  width: clamp(130px, 58.7%, 260px);
+}
+
+.pagina-carga .card__title {
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: clamp(24px, 4.15vw, 59.7px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+/* Logo UCF — esquina inferior derecha */
+.pagina-carga .card__logo {
+  align-self: flex-end;
+  margin-bottom: clamp(12px, 1.73vw, 25px);
+  margin-right: clamp(12px, 1.6vw, 23px);
+  width: clamp(57px, 7.91vw, 114px);
+  height: clamp(16px, 2.3vw, 33px);
+  position: relative;
+}
+
+.pagina-carga .card__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+
+/* Tablet y superior: la tarjeta deja de crecer en 443px */
+@media (min-width: 600px) {
+  .pagina-carga .card {
+    width: clamp(300px, 55vw, 443px);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .pagina-carga .card {
+    width: clamp(360px, 31vw, 443px);
+  }
+}
+
+/* ─── OVERLAY DE SALIDA ──────────────────────────────────── */
+.exit-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0e0e0e;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 999;
+}
+
+/* ─── ANIMACIONES ─────────────────────────────────────────── */
+
+@keyframes bg-zoom-out {
+  from { transform: scale(1); }
+  to   { transform: scale(1.2); }
+}
+
+@keyframes card-reveal {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0% 0); }
+}
+
+@keyframes word-reveal {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes logo-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* 1 — Fondo: zoom out desde el primer frame */
+.bg-image {
+  animation: bg-zoom-out 2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* 2 — Rectángulo negro: se despliega de arriba hacia abajo */
+.pagina-carga .card {
+  animation: card-reveal 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+/* 3 — Texto: reveal por máscara vertical */
+.card__title-mask {
+  display: block;
+  overflow: hidden;
+  line-height: 1.05;
+}
+
+.card__title-word {
+  display: block;
+  animation: word-reveal 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.card__title-mask--welcome .card__title-word { animation-delay: 0.55s; }
+.card__title-mask--pack    .card__title-word { animation-delay: 0.72s; }
+
+/* 4 — Logo: fade in al final */
+.pagina-carga .card__logo {
+  opacity: 0;
+  animation: logo-fade-in 0.6s ease-in-out 1.35s both;
+}
+
+/* Respeto a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-image,
+  .pagina-carga .card,
+  .card__title-word {
+    animation: none;
+  }
+  .pagina-carga .card__logo {
+    opacity: 1;
+    animation: none;
+  }
+}
