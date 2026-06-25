@@ -1268,8 +1268,8 @@ body {
    RESPONSIVE
 ════════════════════════════════════════════════════════ */
 
-/* Wide desktop ≥1424px — padding en hero y sección Misión */
-@media (min-width: 1424px) {
+/* Desktop ≥1025px — padding en hero y sección Misión */
+@media (min-width: 1025px) {
   .site-header__hero {
     padding-left: clamp(24px, 5.28vw, 76px);
     padding-right: clamp(24px, 5.28vw, 76px);
