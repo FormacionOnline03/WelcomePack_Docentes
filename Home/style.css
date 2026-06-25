@@ -141,8 +141,6 @@ body {
 /* Título y subtítulo */
 .site-header__hero {
   margin-bottom: clamp(32px, 4vw, 58px);
-  padding-left: clamp(24px, 5.28vw, 76px);
-  padding-right: clamp(24px, 5.28vw, 76px);
 }
 
 .site-header__title {
@@ -1150,8 +1148,8 @@ body {
 }
 
 .section-mision .container {
-  padding-left: clamp(24px, 5.28vw, 76px);
-  padding-right: clamp(24px, 5.28vw, 76px);
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .section-mision__inner {
@@ -1269,6 +1267,18 @@ body {
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════════════════════ */
+
+/* Wide desktop ≥1424px — padding en hero y sección Misión */
+@media (min-width: 1424px) {
+  .site-header__hero {
+    padding-left: clamp(24px, 5.28vw, 76px);
+    padding-right: clamp(24px, 5.28vw, 76px);
+  }
+  .section-mision .container {
+    padding-left: clamp(24px, 5.28vw, 76px);
+    padding-right: clamp(24px, 5.28vw, 76px);
+  }
+}
 
 /* Tablet */
 @media (max-width: 1024px) {
