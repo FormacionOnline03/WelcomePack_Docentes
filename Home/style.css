@@ -141,6 +141,8 @@ body {
 /* Título y subtítulo */
 .site-header__hero {
   margin-bottom: clamp(32px, 4vw, 58px);
+  padding-left: clamp(24px, 5.28vw, 76px);
+  padding-right: clamp(24px, 5.28vw, 76px);
 }
 
 .site-header__title {
@@ -1148,8 +1150,8 @@ body {
 }
 
 .section-mision .container {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: clamp(24px, 5.28vw, 76px);
+  padding-right: clamp(24px, 5.28vw, 76px);
 }
 
 .section-mision__inner {
@@ -1168,14 +1170,11 @@ body {
 }
 
 .section-mision__pdf {
-  width: 100%;
-  height: clamp(300px, 38vw, 550px);
-  border: none;
-  display: block;
+  display: none;
 }
 
 .section-mision__pdf-btn {
-  display: none;
+  display: inline-flex;
 }
 
 /* ═══════════════════════════════════════════════════════
