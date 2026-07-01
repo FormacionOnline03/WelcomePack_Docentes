@@ -582,17 +582,19 @@ body {
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.jueves-card:nth-child(1) .jueves-card__name::before { background-color: #FCAED5; }
-.jueves-card:nth-child(2) .jueves-card__name::before { background-color: #69E4F9; }
-.jueves-card:nth-child(3) .jueves-card__name::before { background-color: #81F787; }
-.jueves-card:nth-child(4) .jueves-card__name::before { background-color: #EFE865; }
+.jueves-card:nth-child(1) .jueves-card__name::before { background-color: #FFBB80; }
+.jueves-card:nth-child(2) .jueves-card__name::before { background-color: #FCAED5; }
+.jueves-card:nth-child(3) .jueves-card__name::before { background-color: #69E4F9; }
+.jueves-card:nth-child(4) .jueves-card__name::before { background-color: #81F787; }
+.jueves-card:nth-child(5) .jueves-card__name::before { background-color: #EFE865; }
 
 .jueves-card:hover .jueves-card__name::before { transform: scaleX(1); }
 
-.jueves-card:nth-child(1):hover .jueves-card__name { color: #6D3049; }
-.jueves-card:nth-child(2):hover .jueves-card__name { color: #2B3A7A; }
-.jueves-card:nth-child(3):hover .jueves-card__name { color: #105E58; }
-.jueves-card:nth-child(4):hover .jueves-card__name { color: #163050; }
+.jueves-card:nth-child(1):hover .jueves-card__name { color: #6B3000; }
+.jueves-card:nth-child(2):hover .jueves-card__name { color: #6D3049; }
+.jueves-card:nth-child(3):hover .jueves-card__name { color: #2B3A7A; }
+.jueves-card:nth-child(4):hover .jueves-card__name { color: #105E58; }
+.jueves-card:nth-child(5):hover .jueves-card__name { color: #163050; }
 
 .jueves-card__rule {
   border: none;
@@ -634,12 +636,14 @@ body {
   pointer-events: none;
 }
 
-.jueves-card__thumb--portal    { background-image: url(img/frame-5-5.png); }
-.jueves-card__thumb--calidad   { background-image: url(img/frame-5.png); }
+.jueves-card__thumb--secretaria  { background-image: url(img/frame-secretaria.png); }
+.jueves-card__thumb--portal      { background-image: url(img/frame-5-5.png); }
+.jueves-card__thumb--calidad     { background-image: url(img/frame-5.png); }
 .jueves-card__thumb--informatica { background-image: url(img/frame-5-2.png); }
-.jueves-card__thumb--rrhh      { background-image: url(img/image.png); }
+.jueves-card__thumb--rrhh        { background-image: url(img/image.png); }
 
 /* TODO: cuando lleguen las imágenes reales, borrar este bloque */
+.jueves-card__thumb--secretaria::after,
 .jueves-card__thumb--portal::after,
 .jueves-card__thumb--calidad::after,
 .jueves-card__thumb--informatica::after,
