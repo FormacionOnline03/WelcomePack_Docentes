@@ -232,6 +232,19 @@ body {
   margin-left: auto;
 }
 
+.video-handwriting {
+  flex-shrink: 0;
+}
+
+.video-handwriting img {
+  display: block;
+  width: 115%;
+  height: auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* ── Botón volver ── */
 .btn-back {
   flex-shrink: 0;
@@ -286,8 +299,17 @@ body {
   .video-player       { order: 2; }
   .video-quote        { order: 3; }
   .video-signature    { order: 4; }
+  .video-handwriting  { order: 3; }
   .related-videos     { order: 5; }
   .btn-back           { order: 6; }
+
+  .video-handwriting img {
+    width: 80%;
+    position: static;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+  }
 
   .video-player {
     flex: none;
@@ -334,6 +356,11 @@ body {
   .video-signature    { order: 4; }
   .related-videos     { order: 5; }
   .btn-back           { order: 6; }
+
+  .video-handwriting img {
+    width: 100%;
+    margin: 0;
+  }
 
   /* Proporción retrato */
   .video-player {
@@ -417,6 +444,11 @@ body {
   animation: vid-fade 0.6s ease-in-out 1s both;
 }
 
+/* Frase manuscrita */
+.video-handwriting {
+  animation: vid-fade 0.6s ease-in-out 1s both;
+}
+
 .btn-back {
   animation: vid-fade 0.6s ease-in-out 1.2s both;
 }
@@ -431,6 +463,7 @@ body {
   .video-info__role,
   .video-quote,
   .video-signature,
+  .video-handwriting,
   .btn-back,
   .related-videos {
     animation: none;
