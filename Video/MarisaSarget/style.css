@@ -221,6 +221,16 @@ body {
   padding-left: clamp(12px, 1.67vw, 24px);
 }
 
+.video-quote-image {
+  flex-shrink: 0;
+}
+
+.video-quote-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .video-signature {
   flex-shrink: 0;
 }

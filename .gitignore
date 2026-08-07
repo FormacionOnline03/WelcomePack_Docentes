@@ -1,0 +1,8 @@
+.DS_Store
+
+# Material de trabajo de diseño (no usado por la web)
+Recursos/firmas/BRUTOS/
+Recursos/firmas/Escaneados/
+Recursos/firmas/2x/
+Recursos/firmas/*.psd
+Recursos/firmas/*.ai
