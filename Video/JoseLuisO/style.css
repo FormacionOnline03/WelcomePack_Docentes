@@ -1,0 +1,438 @@
+/* ─── VIDEO PAGE ───────────────────────────────────────────── */
+body {
+  background-color: #0e0e0e;
+  color: #ffffff;
+}
+
+.video-page {
+  height: 100svh;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr clamp(260px, 26vw, 420px);
+  gap: clamp(16px, 3vw, 48px);
+  padding: clamp(20px, 3.33vw, 48px) clamp(32px, 4.05vw, 70px);
+  align-items: stretch;
+}
+
+/* ═══════════════════════════════════════════════════════
+   COLUMNA IZQUIERDA
+════════════════════════════════════════════════════════ */
+.video-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+}
+
+/* Contenedor del reproductor — llena toda la altura disponible */
+.video-player {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+/* Área real del vídeo */
+.video-player__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Overlay de preview ── */
+.video-player__overlay {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.video-player[data-state="playing"] .video-player__overlay,
+.video-player[data-state="paused"] .video-player__overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-player[data-state="playing"] ~ .related-videos {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Imagen de preview */
+.video-player__preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── Vídeos relacionados — overlay derecho ── */
+.related-videos {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  width: 38%;
+  padding: clamp(12px, 1.67vw, 24px);
+  display: flex;
+  flex-direction: column;
+}
+
+.related-item {
+  display: flex;
+  gap: clamp(8px, 0.97vw, 14px);
+  align-items: flex-start;
+  text-decoration: none;
+  padding: clamp(10px, 1.11vw, 16px) 0;
+}
+
+.related-item__thumb {
+  flex-shrink: 0;
+  width: clamp(55px, 7.64vw, 110px);
+  aspect-ratio: 174 / 121;
+  border-radius: 4px;
+  background-color: #1e1e1e;
+  position: relative;
+}
+
+.related-item__thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpath d='M21 15l-5-5L5 21'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  pointer-events: none;
+}
+
+.related-item__name {
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: clamp(12px, 1.53vw, 22px);
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.related-item__role {
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: clamp(11px, 1.25vw, 18px);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.3;
+}
+
+.related-item__rule {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* ── Botón play ── */
+.video-player__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: clamp(28px, 2.5vw, 42px);
+  height: clamp(32px, 2.92vw, 48px);
+  padding: 0;
+}
+
+.video-player__play svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+}
+
+/* ═══════════════════════════════════════════════════════
+   COLUMNA DERECHA
+════════════════════════════════════════════════════════ */
+.video-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 0;
+}
+
+.video-info__header {
+  flex-shrink: 0;
+  margin-bottom: clamp(16px, 2.22vw, 32px);
+}
+
+.video-info__name {
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: clamp(28px, 3.61vw, 52px);
+  color: #ffffff;
+  line-height: 1.05;
+  margin-bottom: clamp(4px, 0.56vw, 8px);
+}
+
+.video-info__role {
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: clamp(20px, 2.78vw, 40px);
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+/* ── Cita ── */
+.video-quote {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Comillas decorativas — SVG custom */
+.video-quote__mark {
+  display: block;
+  width: clamp(32px, 4.17vw, 60px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.video-quote__mark--close {
+  align-self: flex-end;
+}
+
+.video-quote__text {
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(15px, 1.94vw, 28px);
+  color: #ffffff;
+  line-height: 1.35;
+  margin-top: clamp(8px, 1.11vw, 16px);
+  margin-bottom: clamp(8px, 1.11vw, 16px);
+  padding-left: clamp(12px, 1.67vw, 24px);
+}
+
+.video-signature {
+  flex-shrink: 0;
+}
+
+.video-signature img {
+  display: block;
+  width: clamp(100px, 13.89vw, 200px);
+  height: auto;
+  margin-left: auto;
+}
+
+/* ── Botón volver ── */
+.btn-back {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(6px, 0.69vw, 10px);
+  padding: clamp(8px, 0.97vw, 14px) clamp(14px, 1.67vw, 24px);
+  border: 1.23px solid #ffffff;
+  color: #ffffff;
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.74vw, 25px);
+  text-decoration: none;
+  align-self: flex-end;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-back:hover {
+  background-color: #69e4f9;
+  border-color: #69e4f9;
+  color: #0e0e0e;
+}
+
+.btn-back svg path {
+  transition: stroke 0.2s ease;
+}
+
+.btn-back:hover svg path {
+  stroke: #0e0e0e;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — TABLET ≤1024px
+   Mismo orden que móvil: nombre/cargo → vídeo → cita → firma → relacionados → botón
+   Técnica: display:contents aplana los contenedores como
+   flex-children directos de .video-page
+════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .video-page {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+    padding: clamp(24px, 4vw, 40px);
+    gap: clamp(20px, 3vw, 36px);
+  }
+
+  .video-col  { display: contents; }
+  .video-info { display: contents; }
+
+  .video-info__header { order: 1; }
+  .video-player       { order: 2; }
+  .video-quote        { order: 3; }
+  .video-signature    { order: 4; }
+  .related-videos     { order: 5; }
+  .btn-back           { order: 6; }
+
+  .video-player {
+    flex: none;
+    aspect-ratio: 16 / 10;
+  }
+
+  .related-videos {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    gap: clamp(12px, 2vw, 20px);
+    padding: clamp(12px, 2vw, 20px) 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .related-item { flex: 1; padding: 0; }
+  .related-item__rule { display: none; }
+
+  .btn-back { align-self: flex-start; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — MÓVIL ≤600px
+   Orden: nombre/cargo → vídeo+relacionados → cita → firma → botón
+   Técnica: display:contents en .video-info aplana sus hijos
+   como flex-children directos de .video-page
+════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .video-page {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: clamp(20px, 5vw, 28px);
+  }
+
+  /* Aplanar ambos contenedores: todos los elementos quedan como
+     hijos directos del flex y se pueden reordenar libremente */
+  .video-col  { display: contents; }
+  .video-info { display: contents; }
+
+  .video-info__header { order: 1; padding-top: 40px; }
+  .video-player       { order: 2; }
+  .video-quote        { order: 3; }
+  .video-signature    { order: 4; }
+  .related-videos     { order: 5; }
+  .btn-back           { order: 6; }
+
+  /* Proporción retrato */
+  .video-player {
+    flex: none;
+    aspect-ratio: 338 / 558;
+  }
+
+  /* Relacionados: fila horizontal con separador */
+  .related-videos {
+    position: static;
+    flex-direction: row;
+    width: 100%;
+    gap: clamp(12px, 3vw, 20px);
+    padding: clamp(16px, 4vw, 24px) 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    margin-top: clamp(8px, 2vw, 16px);
+  }
+
+  .related-item { flex: 1; padding: 0; }
+  .related-item__thumb { width: 100px; }
+  .related-item__name { font-size: 16px; }
+  .related-item__role { font-size: 14px; }
+  .related-item__rule { display: none; }
+
+  .video-quote__text {
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+  }
+
+  .video-signature img { width: min(130px, 35vw); margin: 0 auto; }
+
+  .btn-back { align-self: flex-start; }
+}
+
+/* ─── ANIMACIONES DE ENTRADA ──────────────────────────────── */
+
+@keyframes vid-clip-down {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0% 0); }
+}
+
+@keyframes vid-word-up {
+  from { transform: translateY(110%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes vid-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.video-player {
+  animation: vid-clip-down 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.vid-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.vid-word {
+  display: inline-block;
+  animation: vid-word-up 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.vid-mask:nth-child(1) .vid-word { animation-delay: 0s; }
+.vid-mask:nth-child(2) .vid-word { animation-delay: 0.13s; }
+.vid-mask:nth-child(3) .vid-word { animation-delay: 0.26s; }
+
+.video-info__role {
+  animation: vid-fade 0.6s ease-in-out 0.55s both;
+}
+
+.video-quote {
+  animation: vid-fade 0.6s ease-in-out 0.8s both;
+}
+
+.video-signature {
+  animation: vid-fade 0.6s ease-in-out 1s both;
+}
+
+.btn-back {
+  animation: vid-fade 0.6s ease-in-out 1.2s both;
+}
+
+.related-videos {
+  animation: vid-fade 0.6s ease-in-out 0.3s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-player,
+  .vid-word,
+  .video-info__role,
+  .video-quote,
+  .video-signature,
+  .btn-back,
+  .related-videos {
+    animation: none;
+  }
+}
