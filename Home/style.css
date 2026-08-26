@@ -180,6 +180,21 @@ body {
   gap: clamp(8px, 1.18vw, 17px);
 }
 
+.videos-grid--juan-disabled {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.video-card.is-disabled {
+  display: none;
+}
+
+/* Compensa el ancho extra de las 2 columnas para mantener el alto original de 3 columnas */
+@media (min-width: 601px) {
+  .videos-grid--juan-disabled .video-card {
+    aspect-ratio: 1266 / 1198;
+  }
+}
+
 .video-card {
   position: relative;
   display: block;
