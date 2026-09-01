@@ -57,7 +57,7 @@ body {
   pointer-events: none;
 }
 
-.video-player[data-state="playing"] ~ .related-videos {
+.video-col.is-playing .related-videos {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
@@ -93,13 +93,70 @@ body {
   padding: clamp(10px, 1.11vw, 16px) 0;
 }
 
+.related-item.is-disabled {
+  display: none;
+}
+
+.related-videos.is-disabled {
+  display: none;
+}
+
+/* Botón que sustituye el vídeo principal en lugar de enlazar a otra página */
+.related-item--switch {
+  background: none;
+  border: none;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.related-item--switch .related-item__name,
+.related-item--switch .related-item__role {
+  color: #111111;
+}
+
+/* Velo oscuro suave sobre la miniatura para que se lea el triángulo */
+.related-item--switch .related-item__thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* Triángulo de play sobre la miniatura */
+.related-item--switch .related-item__thumb.has-image::after {
+  content: '';
+  display: block;
+  background-image: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 13px;
+  border-color: transparent transparent transparent #ffffff;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+
 .related-item__thumb {
   flex-shrink: 0;
   width: clamp(55px, 7.64vw, 110px);
   aspect-ratio: 174 / 121;
   border-radius: 4px;
   background-color: #1e1e1e;
+  background-size: cover;
+  background-position: center;
   position: relative;
+}
+
+.related-item__thumb.has-image::after {
+  display: none;
 }
 
 .related-item__thumb::after {
@@ -279,8 +336,9 @@ body {
     gap: clamp(20px, 3vw, 36px);
   }
 
-  .video-col  { display: contents; }
-  .video-info { display: contents; }
+  .video-col     { display: contents; }
+  .video-players { display: contents; }
+  .video-info    { display: contents; }
 
   .video-info__header { order: 1; }
   .video-player       { order: 2; }
@@ -291,6 +349,7 @@ body {
 
   .video-player {
     flex: none;
+    width: 100%;
     aspect-ratio: 16 / 10;
   }
 
@@ -325,8 +384,9 @@ body {
 
   /* Aplanar ambos contenedores: todos los elementos quedan como
      hijos directos del flex y se pueden reordenar libremente */
-  .video-col  { display: contents; }
-  .video-info { display: contents; }
+  .video-col     { display: contents; }
+  .video-players { display: contents; }
+  .video-info    { display: contents; }
 
   .video-info__header { order: 1; padding-top: 40px; }
   .video-player       { order: 2; }
@@ -338,6 +398,7 @@ body {
   /* Proporción retrato */
   .video-player {
     flex: none;
+    width: 100%;
     aspect-ratio: 338 / 558;
   }
 

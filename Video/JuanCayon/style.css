@@ -99,7 +99,13 @@ body {
   aspect-ratio: 174 / 121;
   border-radius: 4px;
   background-color: #1e1e1e;
+  background-size: cover;
+  background-position: center;
   position: relative;
+}
+
+.related-item__thumb.has-image::after {
+  display: none;
 }
 
 .related-item__thumb::after {

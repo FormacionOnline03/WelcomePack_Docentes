@@ -93,13 +93,27 @@ body {
   padding: clamp(10px, 1.11vw, 16px) 0;
 }
 
+.related-item.is-disabled {
+  display: none;
+}
+
+.related-videos.is-disabled {
+  display: none;
+}
+
 .related-item__thumb {
   flex-shrink: 0;
   width: clamp(55px, 7.64vw, 110px);
   aspect-ratio: 174 / 121;
   border-radius: 4px;
   background-color: #1e1e1e;
+  background-size: cover;
+  background-position: center;
   position: relative;
+}
+
+.related-item__thumb.has-image::after {
+  display: none;
 }
 
 .related-item__thumb::after {

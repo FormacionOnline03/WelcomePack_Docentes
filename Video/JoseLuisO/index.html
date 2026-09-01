@@ -14,7 +14,10 @@
          COLUMNA IZQUIERDA: reproductor con overlay de preview
     ════════════════════════════════════════════════════════ -->
     <div class="video-col">
-      <div class="video-player" data-state="preview">
+      <div class="video-player" data-state="preview"
+           data-video-rector="../VideoPlaceholder.mp4"
+           data-preview-rector="../../Recursos/Imagenes/Miniatura_JoseLuisOlazagoita.png"
+           data-alt-rector="José Luis Olazagotia, Rector">
 
         <video class="video-player__video" src="../VideoPlaceholder.mp4" preload="metadata" controls></video>
 
@@ -23,7 +26,7 @@
 
           <!-- Imagen de preview -->
           <img class="video-player__preview"
-               src="../../Recursos/Imagenes/ImagenPreview_JoseLuisO.jpg"
+               src="../../Recursos/Imagenes/Miniatura_JoseLuisOlazagoita.png"
                alt="José Luis Olazagotia, Rector" />
 
           <!-- Botón play centrado -->
@@ -38,21 +41,30 @@
 
       <!-- Vídeos relacionados — absolute sobre el vídeo en desktop, flujo normal en móvil -->
       <aside class="related-videos" aria-label="Otros vídeos">
-        <a class="related-item" href="../JuanCayon/index.html">
+        <div class="related-item is-disabled" aria-hidden="true">
           <div class="related-item__thumb" aria-hidden="true"></div>
           <div class="related-item__meta">
             <p class="related-item__name">Juan Cayón</p>
             <p class="related-item__role">Rector</p>
           </div>
-        </a>
-        <hr class="related-item__rule" />
-        <a class="related-item" href="../MarisaSarget/index.html">
-          <div class="related-item__thumb" aria-hidden="true"></div>
+        </div>
+        <div class="related-item is-disabled" aria-hidden="true">
+          <div class="related-item__thumb has-image" style="background-image: url('../../Recursos/Imagenes/Miniatura_MarisaSarget.png');" aria-hidden="true"></div>
           <div class="related-item__meta">
             <p class="related-item__name">Marisa Sarget</p>
             <p class="related-item__role">Vicerrectora de Ordenación Académica y Profesorado</p>
           </div>
-        </a>
+        </div>
+        <button type="button" class="related-item related-item--switch is-active"
+                data-video="../VideoPlaceholder.mp4"
+                data-preview="../../Recursos/Imagenes/Miniatura_JoseLuisOlazagoita.png"
+                data-alt="José Luis Olazagotia, Vicerrector de Investigación">
+          <div class="related-item__thumb has-image" style="background-image: url('../../Recursos/Imagenes/Miniatura_JoseLuisOlazagoita.png');" aria-hidden="true"></div>
+          <div class="related-item__meta">
+            <p class="related-item__name">José Luis Olazagotia</p>
+            <p class="related-item__role">Vicerrector de Investigación</p>
+          </div>
+        </button>
       </aside>
 
     </div><!-- /.video-col -->
@@ -68,7 +80,7 @@
           <span class="vid-mask"><span class="vid-word">Luis</span></span>
           <span class="vid-mask"><span class="vid-word">Olazagotia</span></span>
         </h1>
-        <p class="video-info__role">Rector</p>
+        <p class="video-info__role">Rector<br>Vicerrector de Investigación</p>
       </div>
 
       <blockquote class="video-quote">
@@ -95,24 +107,60 @@
 
   <script>
     (function () {
-      var player  = document.querySelector('.video-player');
-      var overlay = player.querySelector('.video-player__overlay');
+      var videoCol = document.querySelector('.video-col');
+      var players  = document.querySelectorAll('.video-player');
+
+      function updatePlayingState() {
+        var anyPlaying = Array.prototype.some.call(players, function (p) {
+          return p.dataset.state === 'playing';
+        });
+        videoCol.classList.toggle('is-playing', anyPlaying);
+      }
+
+      players.forEach(function (player) {
+        var overlay = player.querySelector('.video-player__overlay');
+        var video   = player.querySelector('video');
+
+        overlay.addEventListener('click', function () {
+          video.play();
+        });
+
+        video.addEventListener('play', function () {
+          player.dataset.state = 'playing';
+          updatePlayingState();
+        });
+
+        video.addEventListener('pause', function () {
+          if (!video.ended) player.dataset.state = 'paused';
+          updatePlayingState();
+        });
+
+        video.addEventListener('ended', function () {
+          player.dataset.state = 'preview';
+          updatePlayingState();
+        });
+      });
+
+      // Botones que sustituyen el vídeo principal (Rector / Vicerrector) sin salir de la página
+      var player  = players[0];
       var video   = player.querySelector('video');
+      var preview = player.querySelector('.video-player__preview');
 
-      overlay.addEventListener('click', function () {
-        video.play();
-      });
+      document.querySelectorAll('.related-item--switch').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          video.pause();
+          video.currentTime = 0;
+          video.src = btn.dataset.video;
+          preview.src = btn.dataset.preview;
+          preview.alt = btn.dataset.alt;
+          player.dataset.state = 'preview';
+          updatePlayingState();
 
-      video.addEventListener('play', function () {
-        player.dataset.state = 'playing';
-      });
-
-      video.addEventListener('pause', function () {
-        if (!video.ended) player.dataset.state = 'paused';
-      });
-
-      video.addEventListener('ended', function () {
-        player.dataset.state = 'preview';
+          document.querySelectorAll('.related-item--switch').forEach(function (b) {
+            b.classList.remove('is-active');
+          });
+          btn.classList.add('is-active');
+        });
       });
     })();
   </script>
