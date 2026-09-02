@@ -242,7 +242,13 @@ body {
   border-radius: 4px;
   overflow: hidden;
   background-color: #1e1e1e;
+  background-size: cover;
+  background-position: center 20%;
   position: relative;
+}
+
+.video-card__thumb.has-image::after {
+  display: none;
 }
 
 .video-card__thumb::after {
@@ -547,13 +553,22 @@ body {
   padding-bottom: clamp(48px, 5.97vw, 86px);
 }
 
+.section-jueves .accent-bar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .section-jueves__title {
   max-width: 1324px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: clamp(16px, 1.81vw, 26px);
+  text-align: center;
 }
 
 .section-jueves__desc {
   margin-bottom: clamp(32px, 4.03vw, 58px);
+  text-align: center;
 }
 
 /* Carrusel — flex, 3 tarjetas visibles, 4ª oculta */
@@ -577,6 +592,15 @@ body {
   display: flex;
   flex-direction: column;
   aspect-ratio: 423 / 363;
+}
+
+/* Tarjeta más ancha para títulos largos — ocupa 2 columnas + el hueco entre ellas.
+   Nota: el carrusel calcula el desplazamiento asumiendo tarjetas de ancho uniforme,
+   así que el paginado puede desalinearse ligeramente a partir de esta tarjeta. */
+.jueves-card--wide {
+  flex-basis: calc(50% - 8.5px);
+  /* Compensa el ancho extra para mantener el mismo alto que las demás tarjetas */
+  aspect-ratio: 635 / 363;
 }
 
 /* Título */
@@ -609,6 +633,7 @@ body {
 .jueves-card:nth-child(3) .jueves-card__name::before { background-color: #69E4F9; }
 .jueves-card:nth-child(4) .jueves-card__name::before { background-color: #81F787; }
 .jueves-card:nth-child(5) .jueves-card__name::before { background-color: #EFE865; }
+.jueves-card:nth-child(6) .jueves-card__name::before { background-color: #FFC178; }
 
 .jueves-card:hover .jueves-card__name::before { transform: scaleX(1); }
 
@@ -617,6 +642,7 @@ body {
 .jueves-card:nth-child(3):hover .jueves-card__name { color: #2B3A7A; }
 .jueves-card:nth-child(4):hover .jueves-card__name { color: #105E58; }
 .jueves-card:nth-child(5):hover .jueves-card__name { color: #163050; }
+.jueves-card:nth-child(6):hover .jueves-card__name { color: #7A4A10; }
 
 .jueves-card__rule {
   border: none;
@@ -658,18 +684,29 @@ body {
   pointer-events: none;
 }
 
-.jueves-card__thumb--secretaria  { background-image: url(img/frame-secretaria.png); }
-.jueves-card__thumb--portal      { background-image: url(img/frame-5-5.png); }
-.jueves-card__thumb--calidad     { background-image: url(img/frame-5.png); }
-.jueves-card__thumb--informatica { background-image: url(img/frame-5-2.png); }
-.jueves-card__thumb--rrhh        { background-image: url(img/image.png); }
+.jueves-card__thumb--calidad        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Calidad-AdelinaGrava.png); }
+.jueves-card__thumb--calidad::after { display: none; }
+.jueves-card__thumb--informatica    { background-image: url(img/frame-5-2.png); }
+.jueves-card__thumb--rrhh           { background-image: url(img/image.png); }
+.jueves-card__thumb--acompanamiento { background-image: url(img/frame-acompanamiento.png); }
 
 /* TODO: cuando lleguen las imágenes reales, borrar este bloque */
-.jueves-card__thumb--secretaria::after,
-.jueves-card__thumb--portal::after,
-.jueves-card__thumb--calidad::after,
 .jueves-card__thumb--informatica::after,
-.jueves-card__thumb--rrhh::after { display: block; }
+.jueves-card__thumb--rrhh::after,
+.jueves-card__thumb--acompanamiento::after { display: block; }
+
+/* Sesiones aún sin fecha confirmada: fondo gris claro + icono de reloj */
+.jueves-card__thumb--secretaria,
+.jueves-card__thumb--portal {
+  background-color: #d9d9d9;
+}
+
+.jueves-card__thumb--secretaria::after,
+.jueves-card__thumb--portal::after {
+  display: block;
+  background-image: url('../Recursos/Imagenes/clock-negro.svg');
+  background-size: 30%;
+}
 
 .jueves-card__details {
   flex: 1;
@@ -708,6 +745,16 @@ body {
   background-color: #69e4f9;
   border-color: #69e4f9;
   color: #000000;
+}
+
+.jueves-card__btn.is-disabled {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+.jueves-card__btn.is-disabled .btn-arrow {
+  opacity: 0.35;
 }
 
 /* Controles del carrusel */
