@@ -111,6 +111,12 @@ body {
   cursor: pointer;
 }
 
+/* Deshabilitado temporalmente: no navega, pero se mantiene visible */
+.related-item--role-link.is-inactive {
+  cursor: default;
+  pointer-events: none;
+}
+
 .related-item--role-link .related-item__name,
 .related-item--role-link .related-item__role {
   color: #111111;

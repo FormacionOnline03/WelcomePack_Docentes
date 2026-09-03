@@ -232,17 +232,7 @@ body {
   line-height: 1.35;
   margin-top: clamp(8px, 1.11vw, 16px);
   margin-bottom: clamp(8px, 1.11vw, 16px);
-  padding-left: clamp(12px, 1.67vw, 24px);
-}
-
-.video-quote-image {
-  flex-shrink: 0;
-}
-
-.video-quote-image img {
-  display: block;
-  width: 100%;
-  height: auto;
+  text-align: center;
 }
 
 .video-signature {

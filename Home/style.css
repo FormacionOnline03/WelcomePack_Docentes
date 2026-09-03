@@ -188,6 +188,12 @@ body {
   display: none;
 }
 
+.site-nav__plan-link.is-disabled,
+.site-nav__rule.is-disabled,
+.accordion__list-item.is-disabled {
+  display: none;
+}
+
 /* Compensa el ancho extra de las 2 columnas para mantener el alto original de 3 columnas */
 @media (min-width: 601px) {
   .videos-grid--juan-disabled .video-card {
@@ -684,16 +690,16 @@ body {
   pointer-events: none;
 }
 
-.jueves-card__thumb--calidad        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Calidad-AdelinaGrava.png); }
-.jueves-card__thumb--calidad::after { display: none; }
-.jueves-card__thumb--informatica    { background-image: url(img/frame-5-2.png); }
-.jueves-card__thumb--rrhh           { background-image: url(img/image.png); }
-.jueves-card__thumb--acompanamiento { background-image: url(img/frame-acompanamiento.png); }
+.jueves-card__thumb--calidad            { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Calidad-AdelinaGrava.png); }
+.jueves-card__thumb--calidad::after     { display: none; }
+.jueves-card__thumb--informatica        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Informatica-Yasser.jpg); }
+.jueves-card__thumb--informatica::after { display: none; }
+.jueves-card__thumb--rrhh               { background-image: url(img/image.png); }
+.jueves-card__thumb--acompanamiento        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/ServicioComunidad-Angela.jpg); }
+.jueves-card__thumb--acompanamiento::after { display: none; }
 
 /* TODO: cuando lleguen las imágenes reales, borrar este bloque */
-.jueves-card__thumb--informatica::after,
-.jueves-card__thumb--rrhh::after,
-.jueves-card__thumb--acompanamiento::after { display: block; }
+.jueves-card__thumb--rrhh::after { display: block; }
 
 /* Sesiones aún sin fecha confirmada: fondo gris claro + icono de reloj */
 .jueves-card__thumb--secretaria,
@@ -722,6 +728,14 @@ body {
   color: #ffffff;
   line-height: 1.4;
 }
+.jueves-card__mode {
+  font-family: 'Balto', Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: clamp(12px, 1.39vw, 20px);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
 .jueves-card__date strong {
   font-weight: 700;
 }
