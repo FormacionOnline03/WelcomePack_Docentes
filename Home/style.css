@@ -690,12 +690,12 @@ body {
   pointer-events: none;
 }
 
-.jueves-card__thumb--calidad            { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Calidad-AdelinaGrava.png); }
+.jueves-card__thumb--calidad            { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Calidad.jpg); }
 .jueves-card__thumb--calidad::after     { display: none; }
-.jueves-card__thumb--informatica        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Informatica-Yasser.jpg); }
+.jueves-card__thumb--informatica        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Informatica.jpg); }
 .jueves-card__thumb--informatica::after { display: none; }
 .jueves-card__thumb--rrhh               { background-image: url(img/image.png); }
-.jueves-card__thumb--acompanamiento        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/ServicioComunidad-Angela.jpg); }
+.jueves-card__thumb--acompanamiento        { background-image: url(../Recursos/Imagenes/JuevesDeEncuentro/Servicio.jpg); }
 .jueves-card__thumb--acompanamiento::after { display: none; }
 
 /* TODO: cuando lleguen las imágenes reales, borrar este bloque */
